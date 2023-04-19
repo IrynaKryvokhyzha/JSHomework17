@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<h1> Задача 1</h1>
+	<p>
+Створити клас, що дозволяє виконувати такі операції над масивами: 
+знаходження кількості додатних, 
+кількості від’ємних, 
+кількість входжень деякого числа (статичні методи)
+	</p>
+	<script>
+		class Lesson1{
+			static AmountOfPositive(arr){
+				return arr.reduce((prevEl,el)=>(el>0 ? prevEl+1 :prevEl),0)
+			}
+			static AmountOfNegative(arr){
+				return arr.reduce((prevEl,el)=>(el<0 ? prevEl+1 : prevEl),0)
+			}
+			static AmountOfCertainElement(number,arr){
+				let counter = 0
+				for (const num of arr) {
+					if(num === number)
+					counter++
+				}
+				return counter
+			}
+			toString(){
+				return arr
+			}
+		}
+		let arr = [6,8,9,-8,-2,4,-9,5,8]
+
+		document.write(`Кількість додатних = ${Lesson1.AmountOfPositive(arr)}<br>`)
+		document.write(`Кількість від’ємних = ${Lesson1.AmountOfNegative(arr)}<br>`)
+		document.write(`Кількість входжень деякого числа = ${Lesson1.AmountOfCertainElement(8,arr)}`)
+	</script>
+</body>
+
+</html>
+

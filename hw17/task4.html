@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<h1> Задача 4</h1>
+	<p>
+Склад. База товарів, які зберігаються на складі: назва товару, одиниця виміру, 
+кількість, фірма виробник (назва, реєстраційний номер). 
+Організувати реєстрацію/відвантаження товарів, фільтрація за назвою товару,
+фільтрація за назвою фірми
+	</p>
+	<script>
+		class ManufactorerCompany{
+			constructor(title, registrationNum){
+				this.title = title
+				this.registrationNum = registrationNum
+			}
+			toString(){
+				return `Виробник: <br>${this.title} реєстраційний номер: <br>${this.registrationNum}`
+			}
+		}
+		class ProductsDatabase{
+			constructor(name, quantity, unit ){
+				this.name = name
+				this.quantity = quantity
+				this.unit = unit
+				
+				
+			}
+			toString(){
+				return `Назва товару: ${this.name} ${this.quantity} ${this.unit} `
+			}
+		}
+		class Storage{
+			constructor(productsArr, manufCompanyArr){
+				this.productsArr = productsArr
+				this.manufCompanyArr = manufCompanyArr
+			}
+			GoodsRegistration(userProduct){
+				for (const product of this.productsArr) 
+					if(product.name === userProduct){
+						product.quantity+=product.quantity
+					}
+					
+				return this.product
+			}
+			toString(){
+				return `${this.productsArr}<br> ${this.manufCompanyArr}<br>`
+			}
+		}
+		const manufCompanyArr = [
+			new ManufactorerCompany('Світоч', 5487),
+			new ManufactorerCompany('Корона', 8956),
+			new ManufactorerCompany('АВК', 2475),
+			new ManufactorerCompany('Любімов', 3697)
+		]
+		const productsArr = [
+			new ProductsDatabase('шоколад',  5, 'шт.'),
+			new ProductsDatabase('цукерки',  6, 'кг.'),
+			new ProductsDatabase('печиво',  8,'кг.'),
+			new ProductsDatabase('зефір', 4,'кг.')
+		]
+		let storage = new Storage(productsArr,manufCompanyArr)
+		let manufactorerCompany = new ManufactorerCompany()
+		let productsDatabase = new ProductsDatabase()
+		document.write(storage)
+		document.write(`${storage.GoodsRegistration('цукерки')}`)
+	</script>
+</body>
+
+</html>
+
